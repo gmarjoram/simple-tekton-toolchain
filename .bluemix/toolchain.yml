@@ -25,6 +25,12 @@ toolchain:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 
 services:
+  kpvault:
+    service_id: keyprotect
+    name: kp-integration
+    region: us-south
+    resource-group: default
+    instance-name: kp-dal-2
   repo:
     service_id: githubpublic
     parameters:
@@ -63,5 +69,6 @@ form:
     parameters:
       app-name: '{{services.repo.parameters.repo_name}}'
       prod-cluster-namespace: prod
+      api-key: value="{vault::kp-integration.pipeline-api-key}
     schema:
       $ref: deploy.json
