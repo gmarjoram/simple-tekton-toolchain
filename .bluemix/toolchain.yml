@@ -28,10 +28,11 @@ toolchain:
 services:
   kpvault:
     service_id: keyprotect
-    name: kp-integration
-    region: ibm:yp:us-south
-    resource-group: default
-    instance-name: kp-dal-2
+    parameters:
+      name: kp-integration
+      region: ibm:yp:us-south
+      resource-group: default
+      instance-name: kp-dal-2
   repo:
     service_id: githubpublic
     parameters:
